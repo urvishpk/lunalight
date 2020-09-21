@@ -1,0 +1,30 @@
+{
+  "SERVER": {
+    "success": true,
+    "message": "Server is running."
+  },
+  "ADMIN_REGISTERED": {
+    "success": true,
+    "message": "Admin registered."
+  },
+  "INVALID_INPUT": {
+    "success": false,
+    "message": "Invalid input."
+  },
+  "ADMIN_LOGGED_IN": {
+    "success": true,
+    "message": "Admin logged in."
+  },
+  "NOT_LOGGED_IN": {
+    "success": false,
+    "message": "User not logged in."
+  },
+  "ME": {
+    "success": true,
+    "message": "Admin is logged in."
+  },
+  "ADMIN_LOGGED_OUT": {
+    "success": true,
+    "message": "Admin is logged out."
+  }
+}

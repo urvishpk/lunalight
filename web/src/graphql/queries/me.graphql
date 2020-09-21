@@ -1,0 +1,13 @@
+query Me {
+  me {
+    success
+    message
+    data {
+      username
+      email
+    }
+    errors {
+      user
+    }
+  }
+}

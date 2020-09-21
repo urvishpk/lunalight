@@ -1,0 +1,12 @@
+mutation Logout {
+  logout {
+    success
+    message
+    data {
+      done
+    }
+    errors {
+      done
+    }
+  }
+}

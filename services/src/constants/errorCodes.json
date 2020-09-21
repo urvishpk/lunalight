@@ -1,0 +1,47 @@
+{
+  "USERNAME_REQUIRED": {
+    "message": "Username is required."
+  },
+  "SHORT_USERNAME": {
+    "message": "Username is too short."
+  },
+  "LONG_USERNAME": {
+    "message": "Username is too long."
+  },
+  "INVALID_USERNAME": {
+    "message": "Username is invalid."
+  },
+  "EMAIL_REQUIRED": {
+    "message": "Email ID is required."
+  },
+  "INVALID_EMAIL": {
+    "message": "Email ID is invalid."
+  },
+  "PASSWORD_REQUIRED": {
+    "message": "Password is required."
+  },
+  "SHORT_PASSWORD": {
+    "message": "Password is too short."
+  },
+  "LONG_PASSWORD": {
+    "message": "Password is too long."
+  },
+  "CONFIRM_PASSWORD_REQUIRED": {
+    "message": "Confirm password is required."
+  },
+  "PASSWORD_MISMATCH": {
+    "message": "Passwords do not match."
+  },
+  "USERNAME_NOT_AVAILABLE": {
+    "message": "Username is not available."
+  },
+  "USER_NOT_FOUND": {
+    "message": "Username doesn't exist."
+  },
+  "INCORRECT_PASSWORD": {
+    "message": "Password is incorrect."
+  },
+  "NOT_LOGGED_IN": {
+    "message": "You are not logged in."
+  }
+}
