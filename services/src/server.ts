@@ -43,7 +43,7 @@ export const initServer = async () => {
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 365 * 10, //10 years
         httpOnly: !__prod__,
-        sameSite: !__prod__,
+        sameSite: __prod__ ? "none" : "lax",
         secure: __prod__,
       },
       saveUninitialized: false,
