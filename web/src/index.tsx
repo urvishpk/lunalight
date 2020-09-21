@@ -2,17 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_DEV_SERVER_URI,
-  credentials: "include",
-  cache: new InMemoryCache(),
-});
+import { ApolloProvider } from "@apollo/client";
+import { apolloClient } from "./utils";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
+    <ApolloProvider client={apolloClient}>
       <App />
     </ApolloProvider>
   </React.StrictMode>,

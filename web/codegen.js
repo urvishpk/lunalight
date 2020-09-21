@@ -1,7 +1,12 @@
+const schemaURI =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_PROD_SERVER_URI
+    : process.env.REACT_APP_LOCALHOST_URI;
+
 module.exports = {
   schema: [
     {
-      [process.env.REACT_APP_DEV_SERVER_URI]: {},
+      [schemaURI]: {},
     },
   ],
   documents: ["src/graphql/**/*.graphql"],
