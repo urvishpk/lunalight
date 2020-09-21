@@ -1,4 +1,4 @@
-export const __prod__ = process.env.NODE_ENV === "production";
+export const __prod__ = process.env.ENV === "production";
 
 export const regex = {
   USERNAME: /^[a-zA-Z0-9_]*$/,

@@ -1,4 +1,7 @@
 import "reflect-metadata";
+import fs from "fs";
+import https from "https";
+import http from "http";
 import dotenv from "dotenv";
 import express from "express";
 import session from "express-session";
@@ -46,7 +49,25 @@ export const initServer = async () => {
     })
   );
   app.get("/", (_, res) => res.send(codes.SERVER.message));
-  app.listen(process.env.SERVER_PORT);
+  if (__prod__) {
+    const key = fs.readFileSync(process.env.SSL_KEY!, "utf8");
+    const cert = fs.readFileSync(process.env.SSL_CERT!, "utf8");
+    const ca = fs.readFileSync(process.env.SSL_CHAIN!, "utf8");
+    const credentials = { key, cert, ca };
+    https.createServer(credentials, app).listen(443, () => {
+      console.log("HTTPS Server running on port 443");
+    });
+    http
+      .createServer((req, res) => {
+        res.writeHead(301, {
+          Location: "https://" + req.headers["host"] + req.url,
+        });
+        res.end();
+      })
+      .listen(80);
+  } else {
+    app.listen(process.env.SERVER_PORT);
+  }
   const apolloServer = new ApolloServer({
     schema: await createSchema(),
     context: ({ req, res }): MikroContext => ({ em: orm.em, req, res }),
