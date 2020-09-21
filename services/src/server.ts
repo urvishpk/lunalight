@@ -27,11 +27,9 @@ export const initServer = async () => {
   app = express();
   const RedisStore = connectRedis(session);
   const redisClient = redis.createClient();
-
   const origin = __prod__
     ? "https://backtothemoonagain.com"
     : "http://localhost:3000";
-
   app.use(
     cors({
       origin,
@@ -44,8 +42,8 @@ export const initServer = async () => {
       store: new RedisStore({ client: redisClient, disableTouch: true }),
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 365 * 10, //10 years
-        httpOnly: true,
-        sameSite: "lax",
+        httpOnly: !__prod__,
+        sameSite: !__prod__,
         secure: __prod__,
       },
       saveUninitialized: false,
