@@ -1,17 +1,17 @@
 import "reflect-metadata";
 import dotenv from "dotenv";
 import express from "express";
-import redis from "redis";
 import session from "express-session";
+import redis from "redis";
 import connectRedis from "connect-redis";
+import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import { MikroORM } from "@mikro-orm/core";
 import { COOKIE_NAME, __prod__ } from "./constants";
 import codes from "./constants/codes.json";
 import mikroConfig from "./config/mikro-orm.config";
-import { createSchema } from "./utils/createSchema";
 import { MikroContext } from "./types";
-import cors from "cors";
+import { createSchema } from "./config/createSchema";
 
 dotenv.config();
 

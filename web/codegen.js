@@ -1,7 +1,7 @@
 module.exports = {
   schema: [
     {
-      "http://localhost:4000/graphql": {},
+      [process.env.REACT_APP_DEV_SERVER_URI]: {},
     },
   ],
   documents: ["src/graphql/**/*.graphql"],
