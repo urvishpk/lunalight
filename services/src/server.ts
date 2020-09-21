@@ -27,9 +27,14 @@ export const initServer = async () => {
   app = express();
   const RedisStore = connectRedis(session);
   const redisClient = redis.createClient();
+
+  const origin = __prod__
+    ? "https://backtothemoonagain.com"
+    : "http://localhost:3000";
+
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin,
       credentials: true,
     })
   );

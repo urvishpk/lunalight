@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 export const __prod__ = process.env.ENV === "production";
 
 export const regex = {
