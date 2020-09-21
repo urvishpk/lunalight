@@ -9,7 +9,7 @@ dotenv.config();
 export default {
   entities: [BaseEntity, Admin],
   dbName: process.env.DB_NAME,
-  clientUrl: process.env.CLIENT_URL,
-  type: process.env.TYPE,
+  clientUrl: process.env.MONGO_URL,
+  type: process.env.DB_TYPE,
   debug: !__prod__,
 } as Parameters<typeof MikroORM.init>[0];

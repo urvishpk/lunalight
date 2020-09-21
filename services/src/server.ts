@@ -27,9 +27,7 @@ export const initServer = async () => {
   app = express();
   const RedisStore = connectRedis(session);
   const redisClient = redis.createClient();
-  const origin = __prod__
-    ? "https://backtothemoonagain.com"
-    : "http://localhost:3000";
+  const origin = __prod__ ? process.env.CLIENT_URL : process.env.CLIENT_DEV_URL;
   app.use(
     cors({
       origin,
@@ -47,7 +45,7 @@ export const initServer = async () => {
         secure: __prod__,
       },
       saveUninitialized: false,
-      secret: "secret",
+      secret: process.env.COOKIE_SECRET!,
       resave: false,
     })
   );
