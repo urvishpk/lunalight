@@ -25,6 +25,7 @@
 * Supertest
 * Jest
 * react-testing-library
+* Cypress
 
 #### Footnote
 Your feedback is valuable to me. If you have any questions, I can be reached [here](https://www.linkedin.com/in/urvish-kathiriya-81b71571/).
