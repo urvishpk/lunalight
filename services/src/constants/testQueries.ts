@@ -179,3 +179,59 @@ export const logoutMutations = [
     }
   `,
 ];
+
+export const addProductMutation = [
+  `
+    mutation {
+        addProduct(options: { 
+            name: "", 
+            description: "",
+            quantity: 0,
+            price: 0,
+            pictures: []
+        }) {
+            success
+            message
+            data {
+                done
+            }
+            errors {
+                user
+                name
+                description
+                quantity
+                price
+                pictures
+            }
+        }
+    }
+`,
+  `
+    mutation {
+        addProduct(options: { 
+            name: "Flamethrower FM-2044", 
+            description: "A flamethrower for none of your needs.",
+            quantity: 5,
+            price: 99.99,
+            pictures: [
+                "https://picsum.photos/200",
+                "https://picsum.photos/200"
+            ]
+        }) {
+            success
+            message
+            data {
+                done
+            }
+            errors {
+                user
+                name
+                description
+                quantity
+                price
+                pictures
+            }
+        }
+    }
+`,
+];

@@ -43,5 +43,17 @@
   },
   "NOT_LOGGED_IN": {
     "message": "You are not logged in."
+  },
+  "PRODUCT_NAME_REQUIRED": {
+    "message": "Product name is required."
+  },
+  "PRODUCT_DESCRIPTION_REQUIRED": {
+    "message": "Product description is required."
+  },
+  "PRODUCT_PICTURES_REQUIRED": {
+    "message": "Product pictures are required."
+  },
+  "UNAUTHORIZED": {
+    "message": "You are not authorized for this operation."
   }
 }

@@ -78,4 +78,4 @@ export const initServer = async () => {
   return app;
 };
 
-initServer();
+//initServer();

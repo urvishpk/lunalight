@@ -13,10 +13,10 @@ describe("Validations for Admin Registration", () => {
       confirmPassword: "",
     });
     expect(errors).to.not.be.undefined;
-    expect(errors?.username).to.equal(errorCodes.USERNAME_REQUIRED.message);
-    expect(errors?.email).to.equal(errorCodes.EMAIL_REQUIRED.message);
-    expect(errors?.password).to.equal(errorCodes.PASSWORD_REQUIRED.message);
-    expect(errors?.confirmPassword).to.equal(
+    expect(errors!.username).to.equal(errorCodes.USERNAME_REQUIRED.message);
+    expect(errors!.email).to.equal(errorCodes.EMAIL_REQUIRED.message);
+    expect(errors!.password).to.equal(errorCodes.PASSWORD_REQUIRED.message);
+    expect(errors!.confirmPassword).to.equal(
       errorCodes.CONFIRM_PASSWORD_REQUIRED.message
     );
   });
@@ -28,10 +28,10 @@ describe("Validations for Admin Registration", () => {
       confirmPassword: "",
       email: " ",
     });
-    expect(errors?.username).to.equal(errorCodes.USERNAME_REQUIRED.message);
-    expect(errors?.email).to.equal(errorCodes.EMAIL_REQUIRED.message);
-    expect(errors?.password).to.be.undefined;
-    expect(errors?.confirmPassword).to.equal(
+    expect(errors!.username).to.equal(errorCodes.USERNAME_REQUIRED.message);
+    expect(errors!.email).to.equal(errorCodes.EMAIL_REQUIRED.message);
+    expect(errors!.password).to.be.undefined;
+    expect(errors!.confirmPassword).to.equal(
       errorCodes.CONFIRM_PASSWORD_REQUIRED.message
     );
   });

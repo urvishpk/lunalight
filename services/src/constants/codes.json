@@ -26,5 +26,13 @@
   "ADMIN_LOGGED_OUT": {
     "success": true,
     "message": "Admin is logged out."
+  },
+  "PRODUCT_ADDED": {
+    "success": true,
+    "message": "Product is added to the inventory."
+  },
+  "UNAUTHORIZED": {
+    "success": false,
+    "message": "User is unauthorized."
   }
 }
