@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
   },
   headingText: {
     width: "100%",
-    paddingTop: "32%",
+    paddingTop: "400px",
   },
   footer: {
     display: "flex",
