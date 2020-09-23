@@ -32,7 +32,9 @@ describe("/login", () => {
       findElement("input").type("12345678");
     });
     findByTestId("submitButton").click();
-    cy.url().should("not.contain", "/login");
+    cy.url().should("contain", "/dashboard");
+    cy.visit("/login");
+    cy.url().should("contain", "/dashboard");
   });
 
   it("presents errors for invalid login credentials(password)", () => {

@@ -9,7 +9,7 @@ interface RegisterProps {
   history?: History<LocationState>;
 }
 
-export const Register: React.FC<RegisterProps> = ({ history }) => {
+const Register: React.FC<RegisterProps> = ({ history }) => {
   const initialValues = {
     username: "",
     email: "",
@@ -107,3 +107,5 @@ export const Register: React.FC<RegisterProps> = ({ history }) => {
     </>
   );
 };
+
+export default Register;

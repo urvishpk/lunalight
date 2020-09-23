@@ -38,7 +38,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Landing = () => {
+interface LandingProps {}
+
+const Landing: React.FC<LandingProps> = () => {
   const classes = useStyles();
   return (
     <Box className={classes.landing}>
@@ -48,17 +50,17 @@ export const Landing = () => {
         </Typography>
       </Box>
       <Box className={classes.footer}>
-        <Box className={classes.copyright}>
-          <Typography data-testid="copyright">&copy; 2020 Lunalight</Typography>
+        <Box className={classes.copyright} data-testid="copyright">
+          <Typography>&copy; 2020 Lunalight</Typography>
         </Box>
-        <Box>
+        <Box data-testid="vendorLogin">
           <Link to="/login" className={classes.vendorLink}>
-            <Typography data-testid="vendorLogin">
-              Vendor Login &rarr;
-            </Typography>
+            <Typography>Vendor Login &rarr;</Typography>
           </Link>
         </Box>
       </Box>
     </Box>
   );
 };
+
+export default Landing;

@@ -1,13 +1,29 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
-import { LOGIN_MUTATION, LOGIN_RESPONSES } from "../testUtils/mockData";
-import { Login } from "./Login";
+import {
+  LOGIN_MUTATION,
+  LOGIN_RESPONSES,
+  ME_QUERY,
+  ME_RESPONSES,
+} from "../testUtils/mockData";
+import Login from "./Login";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Login", () => {
   it("should render the login form", async () => {
+    const mocks = [
+      {
+        request: { query: ME_QUERY },
+        result: ME_RESPONSES[0],
+      },
+    ];
     const { getByTestId } = render(
-      <MockedProvider>
+      <MockedProvider mocks={mocks} addTypename={false}>
         <Login />
       </MockedProvider>
     );
@@ -33,6 +49,26 @@ describe("Login", () => {
     expect(submitButton).not.toBeDisabled();
   });
 
+  it("should redirect to dashboard", async () => {
+    const mocks = [
+      {
+        request: { query: ME_QUERY },
+        result: ME_RESPONSES[1],
+      },
+    ];
+    const { getByText } = render(
+      <MemoryRouter>
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <Login />
+        </MockedProvider>
+      </MemoryRouter>
+    );
+
+    const submitButton = getByText("Submit");
+    await waitForElementToBeRemoved(() => document.querySelector("form"));
+    expect(submitButton).not.toBeInTheDocument();
+  });
+
   it("should present error for invalid input", async () => {
     const mocks = [
       {
@@ -43,6 +79,10 @@ describe("Login", () => {
           },
         },
         result: LOGIN_RESPONSES[0],
+      },
+      {
+        request: { query: ME_QUERY },
+        result: ME_RESPONSES[0],
       },
     ];
 
@@ -77,34 +117,35 @@ describe("Login", () => {
         },
         result: LOGIN_RESPONSES[1],
       },
+      {
+        request: { query: ME_QUERY },
+        result: ME_RESPONSES[0],
+      },
+      {
+        request: { query: ME_QUERY },
+        result: ME_RESPONSES[1],
+      },
     ];
-    const history: any = {
-      push: jest.fn(),
-    };
-
-    const { getByTestId, findByText } = render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <Login history={history} />
-      </MockedProvider>
+    const { getByTestId } = render(
+      <MemoryRouter>
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <Login />
+        </MockedProvider>
+      </MemoryRouter>
     );
-
     const usernameInput = getByTestId("usernameInput").querySelector("input");
     fireEvent.change(usernameInput, {
       target: { value: "urvishpk" },
     });
-
     const passwordInput = getByTestId("passwordInput").querySelector("input");
     fireEvent.change(passwordInput, {
       target: { value: "12345678" },
     });
-
     const submitButton = getByTestId("submitButton");
     fireEvent.click(submitButton);
     expect(submitButton).toBeDisabled();
     expect(submitButton).toHaveTextContent("Submitting");
-
-    await findByText("Submit");
-    expect(submitButton).not.toBeDisabled();
-    expect(history.push).toHaveBeenCalledWith("/");
+    await waitForElementToBeRemoved(() => document.querySelector("form"));
+    expect(submitButton).not.toBeInTheDocument();
   });
 });

@@ -1,17 +1,19 @@
 import React from "react";
-import { History, LocationState } from "history";
 import { Field, Form, Formik, FormikHelpers, FormikProps } from "formik";
 import { Box, Button } from "@material-ui/core";
-import { LoginInput, useLoginMutation } from "../generated/graphql";
+import { LoginInput, useLoginMutation, useMeQuery } from "../generated/graphql";
 import { AdminLogo, Wrapper, InputField } from "./common";
+import { Redirect } from "react-router-dom";
 
-interface LoginProps {
-  history?: History<LocationState>;
-}
+interface LoginProps {}
 
-export const Login: React.FC<LoginProps> = ({ history }) => {
+const Login: React.FC<LoginProps> = () => {
   const initialValues = { username: "", password: "" };
   const [login] = useLoginMutation();
+  const { data, refetch } = useMeQuery();
+  if (data?.me.success) {
+    return <Redirect to="/dashboard" />;
+  }
   const onSubmit = async (
     values: LoginInput,
     { setSubmitting, setErrors }: FormikHelpers<LoginInput>
@@ -21,8 +23,7 @@ export const Login: React.FC<LoginProps> = ({ history }) => {
     if (!response.data?.login) return;
     const { data, errors } = response.data.login;
     if (data) {
-      history?.push("/");
-      return;
+      refetch();
     }
     if (!errors) return;
     let { username, password } = errors;
@@ -78,3 +79,5 @@ export const Login: React.FC<LoginProps> = ({ history }) => {
     </>
   );
 };
+
+export default Login;

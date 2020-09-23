@@ -1,7 +1,7 @@
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 import { render } from "@testing-library/react";
-import { Landing } from "./Landing";
+import Landing from "./Landing";
 
 describe("Landing", () => {
   it("should render the landing page", async () => {
@@ -19,5 +19,7 @@ describe("Landing", () => {
 
     const vendorLink = getByTestId("vendorLogin");
     expect(vendorLink).toHaveTextContent("Vendor Login →");
+    const link = vendorLink.querySelector("a");
+    expect(link.getAttribute("href")).toEqual("/login");
   });
 });

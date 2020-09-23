@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { REGISTER_MUTATION, REGISTER_RESPONSES } from "../testUtils/mockData";
-import { Register } from "./Register";
+import Register from "./Register";
 
 describe("Register", () => {
   it("should render the register form", async () => {
