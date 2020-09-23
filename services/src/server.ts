@@ -6,13 +6,10 @@ import dotenv from "dotenv";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { MikroORM } from "@mikro-orm/core";
-import { __prod__ } from "./constants";
-import codes from "./constants/codes.json";
-import mikroConfig from "./config/mikro-orm.config";
 import { MikroContext } from "./types";
-import { createSchema } from "./config/createSchema";
-import corsConfig from "./config/cors.config";
-import sessionConfig from "./config/session.config";
+import { __prod__, codes } from "./constants";
+// import codes from "./constants/codes.json";
+import { mikroConfig, corsConfig, sessionConfig, createSchema } from "./config";
 
 dotenv.config();
 
@@ -35,7 +32,6 @@ export const initServer = async () => {
   appStarted = true;
   return app;
 };
-
 const configureAppListener = (expressApp: express.Application) => {
   if (__prod__) {
     const key = fs.readFileSync(process.env.SSL_KEY!, "utf8");
@@ -58,4 +54,4 @@ const configureAppListener = (expressApp: express.Application) => {
   }
 };
 
-initServer();
+//initServer();

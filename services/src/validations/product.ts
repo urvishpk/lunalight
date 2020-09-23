@@ -1,5 +1,5 @@
 import { AddProductErrors, AddProductInput } from "../types/product.types";
-import errorCodes from "../constants/errorCodes.json";
+import { errorCodes } from "../constants";
 import { isEmpty } from "../utils/isEmpty";
 
 export const validateProductInput = ({

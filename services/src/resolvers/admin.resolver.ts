@@ -17,14 +17,12 @@ import {
   LogoutData,
   LogoutErrors,
 } from "../types/admin.types";
-import errorCodes from "../constants/errorCodes.json";
-import codes from "../constants/codes.json";
+import { codes, errorCodes, COOKIE_NAME } from "../constants";
 import { createObjectResponse } from "../utils";
 import { Admin } from "../entities/Admin";
 import { validateRegisterInput } from "../validations/register";
 import { validateLoginInput } from "../validations/login";
 import { ObjectId } from "mongodb";
-import { COOKIE_NAME } from "../constants";
 
 @Resolver()
 export class AdminResolver {

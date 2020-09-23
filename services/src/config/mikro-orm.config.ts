@@ -1,6 +1,6 @@
-import { __prod__ } from "../constants";
-import { MikroORM } from "@mikro-orm/core";
 import dotenv from "dotenv";
+import { MikroORM } from "@mikro-orm/core";
+import { __prod__ } from "../constants";
 import { BaseEntity } from "../entities/BaseEntity";
 import { Admin } from "../entities/Admin";
 import { Product } from "../entities/Product";

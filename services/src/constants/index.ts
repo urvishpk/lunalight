@@ -1,10 +1,12 @@
 import dotenv from "dotenv";
+import codes from "./codes.json";
+import errorCodes from "./errorCodes.json";
 
 dotenv.config();
 
-export const __prod__ = process.env.ENV === "production";
+const __prod__ = process.env.ENV === "production";
 
-export const regex = {
+const regex = {
   USERNAME: /^[a-zA-Z0-9_]*$/,
   NAME: /^[a-zA-Z ,.'-]+$/i,
   PHONE: /\d{10}/,
@@ -17,4 +19,6 @@ export const regex = {
   EMAIL: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
 };
 
-export const COOKIE_NAME = "qid";
+const COOKIE_NAME = "qid";
+
+export { __prod__, regex, COOKIE_NAME, codes, errorCodes };

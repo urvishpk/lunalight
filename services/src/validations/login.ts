@@ -1,6 +1,6 @@
 import { LoginErrors, LoginInput } from "../types/admin.types";
 import { isEmpty } from "../utils/isEmpty";
-import errorCodes from "../constants/errorCodes.json";
+import { errorCodes } from "../constants";
 
 export const validateLoginInput = ({
   username,

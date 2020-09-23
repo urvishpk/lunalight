@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import errorCodes from "../../constants/errorCodes.json";
+import { errorCodes } from "../../constants";
 import { AddProductErrors } from "../../types/product.types";
 import { validateProductInput } from "../../validations/product";
 

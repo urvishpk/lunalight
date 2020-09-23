@@ -1,6 +1,6 @@
 import request from "supertest";
 import { expect } from "chai";
-import codes from "../constants/codes.json";
+import { codes } from "../constants";
 import { initServer } from "../server";
 
 describe("Server test", () => {

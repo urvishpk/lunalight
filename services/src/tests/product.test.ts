@@ -1,8 +1,7 @@
 import request from "supertest";
 import { expect } from "chai";
 import { initServer } from "../server";
-import codes from "../constants/codes.json";
-import errorCodes from "../constants/errorCodes.json";
+import { codes, errorCodes } from "../constants";
 import { addProductMutation, loginMutations } from "../constants/testQueries";
 
 describe("Add Product", () => {

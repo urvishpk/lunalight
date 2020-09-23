@@ -1,7 +1,6 @@
 import { RegisterErrors, RegisterInput } from "../types/admin.types";
 import { isEmpty } from "../utils/isEmpty";
-import errorCodes from "../constants/errorCodes.json";
-import { regex } from "../constants";
+import { errorCodes, regex } from "../constants";
 
 export const validateRegisterInput = ({
   username,

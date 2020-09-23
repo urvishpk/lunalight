@@ -7,8 +7,7 @@ import {
   AddProductResponse,
 } from "../types/product.types";
 import { createObjectResponse } from "../utils";
-import codes from "../constants/codes.json";
-import errorCodes from "../constants/errorCodes.json";
+import { errorCodes, codes } from "../constants";
 import { Product } from "../entities/Product";
 import { validateProductInput } from "../validations/product";
 

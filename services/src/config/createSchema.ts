@@ -2,7 +2,7 @@ import { buildSchema } from "type-graphql";
 import { AdminResolver } from "../resolvers/admin.resolver";
 import { ProductResolver } from "../resolvers/product.resolver";
 
-export const createSchema = () =>
+export default () =>
   buildSchema({
     resolvers: [AdminResolver, ProductResolver],
     validate: false,

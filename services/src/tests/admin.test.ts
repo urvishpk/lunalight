@@ -1,7 +1,6 @@
 import request from "supertest";
 import { expect } from "chai";
-import codes from "../constants/codes.json";
-import errorCodes from "../constants/errorCodes.json";
+import { codes, errorCodes } from "../constants";
 import { initServer } from "../server";
 import { COOKIE_NAME } from "../constants";
 import {

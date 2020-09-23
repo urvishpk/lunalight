@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import errorCodes from "../../constants/errorCodes.json";
+import { errorCodes } from "../../constants";
 import { LoginErrors, RegisterErrors } from "../../types/admin.types";
 import { validateRegisterInput } from "../../validations/register";
 import { validateLoginInput } from "../../validations/login";
